@@ -6,44 +6,62 @@
 
 	<style>
 	       body {
-	          background: linear-gradient(135deg, #e3a6ae, #c9c8e1);
-	           display: flex;
+	         background-image: radial-gradient( circle 1091px at 106.5% 111.5%,  rgba(250,246,213,1) 0.1%, rgba(218,147,93,1) 42.2%, rgba(137,86,67,1) 74.3%, rgba(67,39,39,1) 100.2% );
+             display: flex;
 	           justify-content: center;
 	           align-items: center;
 	           min-height: 100vh;
 	           margin: 0;
 	       }
+         
 	       .form-container {
-	           max-width: 400px;
-	           width: 100%;
+	           
+	           width: 40%;
 	           padding: 40px;
-	           background-color: #84708a;
-	           border-radius: 15px;
-	           box-shadow: 14px 13px 10px 1px rgba(34,7,32,0.46);
+	          border-radius: 20px;
+	           box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           -webkit-box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           -moz-box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           background-image: linear-gradient( 109.6deg,  rgba(255,253,208,1) 11.2%, rgba(153,102,51,1) 91% );
+
 	           animation: fadeSlide 2s ease;
 	       }
 	       .form-title {
 	           text-align: center;
-	           color: #FFFFFF;
-	           font-weight: 700;
+	           color: #674f04; 
+            font-family: serif;
+            font-weight: 900;
 	           margin-bottom: 30px;
 	           animation: fadeIn 5s ease;
 	       }
 	       label {
-	           font-weight: 500;
-	           color: #E6E6FA;
+	           color: #a28f70; 
+            font-weight: 600;
 	       }
 	       .form-control, .form-select {
 	           margin-bottom: 25px;
 	       }
-	       .btn-primary {
-	           background-color: #48405c;
-	           border-color: #3a2375;
-	       }
-	       .btn-primary:hover {
-	           background-color: #554382;
-	           border-color: #20124d;
-	       }
+	      .btn-primary {
+           background: #F0C27B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4B1248, #F0C27B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4B1248, #F0C27B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+             font-weight: 700;
+            font-family: serif;
+        
+          border-color: #7b3306;
+        }
+        .btn-primary:hover {
+      background: #603813;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #b29f94, #603813);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #b29f94, #603813); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+           border-color: #7b3306;
+            font-weight: 700;
+            font-family: serif;
+        }
+
 	       @keyframes fadeSlide {
 	           from {
 	               opacity: 0;

@@ -5,7 +5,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #e3a6ae, #c9c8e1);
+          background-image: radial-gradient( circle 1091px at 106.5% 111.5%,  rgba(250,246,213,1) 0.1%, rgba(218,147,93,1) 42.2%, rgba(137,86,67,1) 74.3%, rgba(67,39,39,1) 100.2% );
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,21 +17,25 @@
             width: 40%;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 14px 13px 10px 1px rgba(34,7,32,0.46);
-            background-color: #84708a;
+           box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           -webkit-box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           -moz-box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           background-image: linear-gradient( 109.6deg,  rgba(255,253,208,1) 11.2%, rgba(153,102,51,1) 91% );
+
             opacity: 0;
             animation: slideIn 1s ease-out forwards;
         }
         h2 {
             text-align: center;
-            color: #f3f6f4;
-            font-weight: 700;
+            color: #674f04; 
+            font-family: serif;
+            font-weight: 900;
             margin-bottom: 30px;
             animation: fadeIn 1s ease-in-out;
         }
         label {
-            color: #CCCCCC;
-            font-weight: 500;
+            color: #a28f70; 
+            font-weight: 600;
             font-size: 1.1em;
         }
         input {
@@ -48,18 +53,33 @@
             box-shadow: 0 0 5px rgba(42, 157, 244, 0.6);
         }
         button {
-            background-color: #48405c;
-            color: white;
-            font-weight: medieum;
+             background: #F0C27B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4B1248, #F0C27B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4B1248, #F0C27B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          color: white;
+           
             cursor: pointer;
             border: none;
             transition: background-color 0.3s, transform 0.3s ease;
             padding: 10px;
             width: 100%;
+            font-weight: 700;
+             font-family: Georgia, serif;
+           
             border-radius: 5px;
         }
         button:hover {
-            background-color:#554382;
+          
+        background: #603813;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #b29f94, #603813);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #b29f94, #603813); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+           border-color: #7b3306;
+            font-weight: 700;
+            font-family: serif;
+
+         
             transform: translateY(2px);
         }
         .text-danger {
@@ -71,11 +91,11 @@
             text-align: center;
             margin-top: 20px;
             font-size: 1.1em;
-            color: #e3dcf2;
+            color: #674f04; 
         }
 
         .register-link a {
-            color: #38246c;
+            color:  #403121; 
             text-decoration: none;
             font-weight: bold;
             padding: 5px 0;
@@ -83,7 +103,7 @@
         }
 
         .register-link a:hover {
-            color: #f28d42;
+            color: #a65e09; 
             text-decoration: underline;
         }
 

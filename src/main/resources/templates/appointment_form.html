@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Appointments</title>
+    <title>Book Appointment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-           background: linear-gradient(135deg, #e3a6ae, #c9c8e1);
+            background-image: radial-gradient( circle 1091px at 106.5% 111.5%,  rgba(250,246,213,1) 0.1%, rgba(218,147,93,1) 42.2%, rgba(137,86,67,1) 74.3%, rgba(67,39,39,1) 100.2% );
+
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             margin: 0;
         }
-        .appointments-container {
-            width: 80%;
-            max-width: 1000px;
+        .card {
+            width: 33%;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background-color:#84708a;
+              box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           -webkit-box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           -moz-box-shadow: 29px 33px 36px -9px rgba(53,0,0,1);
+           background-image: linear-gradient( 109.6deg,  rgba(255,253,208,1) 11.2%, rgba(153,102,51,1) 91% );
+
             margin-top: 20px;
             opacity: 0;
             animation: slideIn 0.8s ease-out forwards;
         }
-        .appointments-title {
-            color:  #f3f6f4;
-            text-align: center;
-            font-weight: 700;
-            font-size: 2em;
+        h2 {
+             text-align: center;
+            color: #674f04; 
+            font-family: serif;
+            font-weight: 900;
             margin-bottom: 30px;
             animation: fadeIn 1s ease-in-out;
         }
-        table {
+        label {
+            color: #a28f70; 
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        select, input, button {
             width: 100%;
-        }
-        thead {
-            background-color: #999999;
-            color: white;
-        }
-        th, td {
-            text-align: center;
+            margin-bottom: 20px; /* Increased space between elements */
             padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            color: oklch(0.421 0.095 57.708);
+            font-weight: 400;
+            transition: all 0.3s ease;
         }
-        tbody tr {
-            transition: background-color 0.3s ease;
+        select, input {
+            background-color: oklch(0.987 0.026 102.212);/* Light grey input field */
         }
-        tbody tr:hover {
-            background-color: #f0f9ff;
-        }
-         button {
-            background-color: #48405c; 
+        button {
+         background-image: radial-gradient( circle 1588px at -27.3% 144%,  rgba(255,22,22,1) 0%, rgba(0,0,0,1) 43.4%, rgba(0,0,0,1) 65.8%, rgba(255,22,22,1) 100.2% );/* Unique Orange */
             color: white;
             font-weight: bold;
             cursor: pointer;
             border: none;
             transition: background-color 0.3s, transform 0.3s ease;
-            padding: 15px;
+            padding: 14px;
         }
         button:hover {
-            background-color: #55438e; 
-            transform: translateY(-3px); 
+           background-image: linear-gradient( 100.1deg,  rgba(217,157,38,1) 16.8%, rgba(247,213,110,1) 77.3% ); 
+            transform: translateY(-3px); /* Slight lift effect */
+        }
+        button:active {
+            transform: translateY(0); /* Button presses down on click */
+        }
+        select:focus, input:focus {
+            border-color: oklch(0.554 0.135 66.442) /* yellow border when focused */
+            box-shadow: 0 0 5px rgba(42, 157, 244, 0.6); /* Focus shadow */
+        }
+        .error {
+            color: oklch(0.371 0 0);
+            font-weight: 500;
+            font-size: 0.9em;
+            text-align: center;
         }
 
         /* Animations */
@@ -84,34 +102,25 @@
     </style>
 </head>
 <body>
-    <div class="appointments-container">
-        <h2 class="appointments-title">My Appointments</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Doctor</th>
-                        <th>Patient</th>
-                        <th>Date & Time</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="appt : ${appointments}">
-                        <td th:text="${appt.doctor.username}">Doctor</td>
-                        <td th:text="${appt.patient.username}">Patient</td>
-                        <td th:text="${appt.appointmentTime}">Date</td>
-                        <td th:text="${appt.status}">Status</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="card">
+        <h2>Book Appointment</h2>
+        <form th:action="@{/appointments/book}" method="post">
+            <div class="form-group">
+                <label for="doctorId">Select Doctor:</label>
+                <select name="doctorId" id="doctorId" required>
+                    <option th:each="doc : ${doctors}" th:value="${doc.id}" th:text="${doc.username}">Doctor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="datetime">Date & Time:</label>
+                <input type="datetime-local" name="datetime" id="datetime" required>
+            </div>
+
+            <button type="submit">Book</button>
+
+            <p th:if="${param.error}" class="error">There was an error with your request.</p>
+        </form>
     </div>
-	<div class="mb-6 self-start">
-	     <button onclick="history.back()" class=" text-white font-bold py-2 px-4 rounded">
-	         ← Back
-	     </button>
-	 </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
